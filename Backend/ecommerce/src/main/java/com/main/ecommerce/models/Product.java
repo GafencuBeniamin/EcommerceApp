@@ -16,7 +16,7 @@ import javax.validation.constraints.NotNull;
 @Table(name = "products")
 public class Product {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
 
     private @NotNull String name;

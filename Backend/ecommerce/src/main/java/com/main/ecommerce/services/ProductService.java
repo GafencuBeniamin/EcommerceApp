@@ -31,6 +31,7 @@ public class ProductService {
 
         products.forEach(result -> results.add(ProductDto.builder()
                 .id(result.getId())
+                .name(result.getName())
                 .imageUrl(result.getImageUrl())
                 .price(result.getPrice())
                 .description(result.getDescription())
@@ -49,6 +50,7 @@ public class ProductService {
 
         return ProductDto.builder()
                 .id(product.getId())
+                .name(product.getName())
                 .categoryId(product.getCategory().getId())
                 .price(product.getPrice())
                 .imageUrl(product.getImageUrl())
@@ -63,6 +65,7 @@ public class ProductService {
         });
         Product product = Product.builder()
                 .id(productDto.getId())
+                .name(productDto.getName())
                 .imageUrl(productDto.getImageUrl())
                 .price(productDto.getPrice())
                 .description(productDto.getDescription())
@@ -78,10 +81,12 @@ public class ProductService {
         Product product =  productRepository.findById(id).orElseThrow(()->{
             throw new CrudOperationException("Product does not exist");
         });
+        productRepository.deleteById(id);
         return ProductDto.builder()
                 .id(product.getId())
                 .categoryId(product.getCategory().getId())
                 .price(product.getPrice())
+                .name(product.getName())
                 .imageUrl(product.getImageUrl())
                 .description(product.getDescription())
                 .build();
@@ -99,6 +104,8 @@ public class ProductService {
         product.setDescription(productDto.getDescription());
         product.setImageUrl(productDto.getImageUrl());
         product.setCategory(category);
+        productRepository.save(product);
+        productDto.setId(product.getId());
         return productDto;
     }
 
