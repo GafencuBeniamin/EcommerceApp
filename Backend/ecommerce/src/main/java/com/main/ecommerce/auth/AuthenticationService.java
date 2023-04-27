@@ -3,7 +3,7 @@ package com.main.ecommerce.auth;
 import com.main.ecommerce.config.JwtService;
 import com.main.ecommerce.models.Role;
 import com.main.ecommerce.models.User;
-import com.main.ecommerce.models.UserRepository;
+import com.main.ecommerce.repositories.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
