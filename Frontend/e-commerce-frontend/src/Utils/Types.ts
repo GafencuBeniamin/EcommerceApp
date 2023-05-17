@@ -18,10 +18,9 @@ export type WelcomePageConfigType = {
     buttonText: string;
 };
 
-export type SideBarConfigType = {
+export type NavBarConfigType = {
     path: string;
     name: string;
-    icon: JSX.Element;
 };
 
 export type AuthResponseType = {
