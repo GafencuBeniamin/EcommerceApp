@@ -23,6 +23,7 @@ export const Colors = {
     black: "#000000",
     brightBlack: "#3e3e3e",
     carCardBlack: "#1B1B1B",
+    beige: "#9F8C76",
 };
 
 export const minWidthQuery = (breakpoint: string) =>
