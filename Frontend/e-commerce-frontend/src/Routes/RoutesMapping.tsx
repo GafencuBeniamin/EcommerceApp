@@ -3,6 +3,7 @@ import { Route, Routes, BrowserRouter } from "react-router-dom";
 import { Welcome } from "../Components/Pages/Welcome/Welcome";
 import { Dashboard } from "../Components/Pages/Dashboard/Dashboard";
 import { PageRoutes } from "../Utils/Routes";
+import { About } from "../Components/Pages/About/About";
 //import { Register } from "../Components/Pages/Register/Register";
 import { Config } from "../Utils/Config";
 import { welcomePageValues } from "../Utils/HardcodedConfigs";
@@ -19,7 +20,7 @@ export const RoutesMapping: FC = () => {
         //{ path: PageRoutes.REGISTER, component: <Register />},
         //{ path: PageRoutes.LOGIN,component: <Login />},
         { path: PageRoutes.PAGE_NOT_FOUND, component: <PageNotFound /> },
-        { path: PageRoutes.ABOUT, component: <Dashboard /> }
+        { path: PageRoutes.ABOUT, component: <About /> }
     ];
 
     return (
