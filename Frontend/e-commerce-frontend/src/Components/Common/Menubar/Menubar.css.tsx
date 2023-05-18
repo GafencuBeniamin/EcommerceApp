@@ -17,7 +17,7 @@ export const MenubarContainer = styled.div`
 export const MenuItemLinks = styled.div`
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     font-size: 30px;
     text-decoration: none;
     border-radius: 5px;
@@ -36,7 +36,7 @@ export const MenuItemLinks = styled.div`
 export const SpecialMenuItem = styled.div`
     display: flex;
     align-items: center;
-    padding: 2rem;
+    padding: 1rem;
     font-size: 30px;
     text-decoration: none;
     border-radius: 5px;
