@@ -3,5 +3,6 @@ export enum PageRoutes {
     DASHBOARD = '/dashboard',
     LOGIN = '/login',
     ABOUT = '/about',
-    PAGE_NOT_FOUND = "*"
+    PAGE_NOT_FOUND = "*",
+    PRODUCT_DETAILS ='/product-details'
 }

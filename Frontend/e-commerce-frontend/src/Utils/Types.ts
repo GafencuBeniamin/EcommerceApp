@@ -34,8 +34,17 @@ export type CredentialsType = {
     username: string;
     password: string;
 };
-
-export type ChangePasswordType = {
-    username: string;
-    newPassword: string;
-}
+export type ProductType = {
+    id: number;
+    imageUrl: string;
+    name: string;
+    description: string;
+    price: number;
+    category: CategoryType;
+};
+export type CategoryType = {
+    id: number;
+    name: string;
+    description: string;
+    imageUrl: string;
+};
