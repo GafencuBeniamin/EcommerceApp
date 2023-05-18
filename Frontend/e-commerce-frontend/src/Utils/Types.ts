@@ -40,11 +40,11 @@ export type ProductType = {
     name: string;
     description: string;
     price: number;
-    category: CategoryType;
+    categoryId: number;
 };
 export type CategoryType = {
     id: number;
-    name: string;
+    categoryName: string;
     description: string;
     imageUrl: string;
 };

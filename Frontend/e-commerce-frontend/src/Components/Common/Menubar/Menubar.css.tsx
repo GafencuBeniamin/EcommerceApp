@@ -14,7 +14,7 @@ export const MenubarContainer = styled.div`
     justify-content: space-between;
 `
 //aici poate fi link pe viitor
-export const MenuItemLinks = styled.div`
+export const MenuItemLinks = styled(Link)`
     display: flex;
     align-items: center;
     padding: 1rem;
@@ -33,7 +33,7 @@ export const MenuItemLinks = styled.div`
         transition: 0.2s;
     }
 `;
-export const SpecialMenuItem = styled.div`
+export const SpecialMenuItem = styled(Link)`
     display: flex;
     align-items: center;
     padding: 1rem;

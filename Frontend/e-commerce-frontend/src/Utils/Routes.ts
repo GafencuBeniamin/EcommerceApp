@@ -4,5 +4,6 @@ export enum PageRoutes {
     LOGIN = '/login',
     ABOUT = '/about',
     PAGE_NOT_FOUND = "*",
-    PRODUCT_DETAILS ='/product-details'
+    PRODUCT_DETAILS = '/product-details/:id',
+    FILTERED_DASHBOARD = '/dashboard/:id'
 }

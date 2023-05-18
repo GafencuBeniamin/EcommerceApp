@@ -9,6 +9,7 @@ import { welcomePageValues } from "../Utils/HardcodedConfigs";
 import { Login } from "../Components/Pages/Login/Login";
 import { PageNotFound } from "../Components/Pages/PageNotFound/PageNotFound";
 import { ProductDetails } from "../Components/Pages/ProductDetails/ProductDetails";
+import { FilteredDashboard } from "../Components/Pages/Dashboard/FilteredDashboard";
 
 export const RoutesMapping: FC = () => {
     const config = Config.getInstance();
@@ -20,7 +21,8 @@ export const RoutesMapping: FC = () => {
         { path: PageRoutes.LOGIN,component: <Login />},
         { path: PageRoutes.PAGE_NOT_FOUND, component: <PageNotFound /> },
         { path: PageRoutes.ABOUT, component: <About /> },
-        { path: PageRoutes.PRODUCT_DETAILS, component: <ProductDetails /> }
+        { path: PageRoutes.PRODUCT_DETAILS, component: <ProductDetails /> },
+        { path: PageRoutes.FILTERED_DASHBOARD, component: <FilteredDashboard /> }
     ];
 
     return (

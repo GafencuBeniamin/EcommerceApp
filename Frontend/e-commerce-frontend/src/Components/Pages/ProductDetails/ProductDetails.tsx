@@ -7,40 +7,38 @@ import {
     BackButton, NameContainer, ProductDetailContainer, ContentGrid, DetailsContainer, DescriptionContainer,
     Image, ImageContainer, CategoryContainer, TitleContainer, PriceContainer
 } from "./ProductDetails.css";
-import testImage from "../../../Assets/Images/tamplarie.jpg";
 import { useParams } from "react-router-dom";
 import { requestUrls } from "../../../Backend/requestUrls";
 //import useGetCustomFetch from "../../../Hooks/useGetCustomFetch";
-import usePostCustomFetch from "../../../Hooks/usePostCustomFetch";
-import { useRedirectHome } from "../../../Hooks/useRedirectHome";
-import { ProductType } from "../../../Utils/Types";
+import { CategoryType, ProductType } from "../../../Utils/Types";
+import axios from "axios";
 
 
 export const ProductDetails: FC = () => {
-    /*
+    
     const { id } = useParams();
-    const productObjectRequestUrl = requestUrls.product.replace(':id', `${id}`);
-    const { response: productResponse, fetcher: fetchProduct } = useGetCustomFetch<ProductType, string>(productObjectRequestUrl);
-    const {
-        fetcher: deleteProductPayload,
-    } = usePostCustomFetch<any, any>(`${requestUrls.products}/${id}`, 'DELETE');
-    const { navigateHome } = useRedirectHome();
-
     const [product, setProduct] = useState<ProductType>();
 
     useEffect(() => {
         fetchProduct();
+    }, []);
+    const productByIdUrl = requestUrls.product.replace(':id', `${id}`);
+    const fetchProduct = async () => {
+        const productResponse = await axios.get(productByIdUrl);
+        setProduct(productResponse.data);
+    };
 
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [token]);
+    const [categories, setCategories] = useState<CategoryType[]>([]);
 
     useEffect(() => {
-        if (productResponse) {
-            setProduct(productResponse);
-        }
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [productResponse]);
-    */
+        fetchCategories();
+    }, []);
+
+    const fetchCategories = async () => {
+        const categoriesResponse = await axios.get(requestUrls.categories);
+        setCategories(categoriesResponse.data);
+    };
+    
     return (
         <>
             <Navbar />
@@ -49,46 +47,19 @@ export const ProductDetails: FC = () => {
                     <BackButton to={PageRoutes.DASHBOARD}>
                         <FaIcons.FaChevronLeft />
                     </BackButton>
-                    <CategoryContainer>
-                        Paturi
-                    </CategoryContainer>
-                    <NameContainer>
-                        Leonardo
-                    </NameContainer>
-                </TitleContainer>
-                <hr />
-                <ContentGrid>
-                    <ImageContainer>
-                        <Image backgroundImg={testImage}></Image>
-                    </ImageContainer>
-                    <DetailsContainer>
-                        <DescriptionContainer>
-                            Pat de calitate maxima cumparati va rog
-                        </DescriptionContainer>
-                        <PriceContainer>
-                            Pret: 2000 lei
-                        </PriceContainer>
-                    </DetailsContainer>
-                </ContentGrid>
-            </ProductDetailContainer>
-        </>
-    )
-}
-/*
-    return (
-        <>
-            <Navbar />
-            <CarDetailContainer>
-                <TitleContainer>
-                    <BackButton to={PageRoutes.DASHBOARD}>
-                        <FaIcons.FaChevronLeft />
-                    </BackButton>
+                    
+                    {categories.map((category, index) => {
+                        if (product?.categoryId === category.id)
+                        return (
+                            <CategoryContainer>
+                                {category.categoryName}
+                            </CategoryContainer>
+                        );
+                        return null;
+                    })}
                     <NameContainer>
                         {product?.name}
                     </NameContainer>
-                    <CategoryContainer>
-                        {product?.category.name}
-                    </CategoryContainer>
                 </TitleContainer>
                 <hr />
                 <ContentGrid>
@@ -96,12 +67,15 @@ export const ProductDetails: FC = () => {
                         <Image backgroundImg={product?.imageUrl}></Image>
                     </ImageContainer>
                     <DetailsContainer>
-                        <DetailsGrid>
-                        </DetailsGrid>
+                        <DescriptionContainer>
+                            {product?.description}
+                        </DescriptionContainer>
+                        <PriceContainer>
+                            Pret: {product?.price} lei
+                        </PriceContainer>
                     </DetailsContainer>
                 </ContentGrid>
-            </CarDetailContainer>
+            </ProductDetailContainer>
         </>
     )
 }
-*/

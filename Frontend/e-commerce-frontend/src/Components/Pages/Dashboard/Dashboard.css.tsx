@@ -66,9 +66,5 @@ export const ProductName = styled.div`
     font-size: large;
 `;
 
-export const CategoryName = styled.div`
-    font-size: small;
-`;
-
 
 

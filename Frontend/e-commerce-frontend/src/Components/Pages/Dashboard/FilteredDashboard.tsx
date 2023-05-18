@@ -7,12 +7,27 @@ import {
 } from "./Dashboard.css";
 import { PageRoutes } from "../../../Utils/Routes";
 import axios from "axios"
-import { ProductType } from "../../../Utils/Types";
+import { CategoryType, ProductType } from "../../../Utils/Types";
 import { requestUrls } from "../../../Backend/requestUrls";
+import { useParams } from "react-router-dom";
+
+//gonna change based on given category id
+
+export const FilteredDashboard: FC = () => {
+
+    const { id } = useParams();
+    const [category, setCategory] = useState<CategoryType>();
+
+    useEffect(() => {
+        fetchCategory();
+    }, []);
+    const categoryByIdUrl = requestUrls.category.replace(':id', `${id}`);
+    const fetchCategory = async () => {
+        const categoryResponse = await axios.get(categoryByIdUrl);
+        setCategory(categoryResponse.data);
+    };
 
 
-
-export const Dashboard: FC = () => {
 
     const [products, setProducts] = useState<ProductType[]>([]);
 
@@ -24,7 +39,7 @@ export const Dashboard: FC = () => {
         const productsResponse = await axios.get(requestUrls.products);
         setProducts(productsResponse.data);
     };
-   
+
     return (
         <DashboardContainer>
             <Navbar />
@@ -34,20 +49,21 @@ export const Dashboard: FC = () => {
                 <DashboardContainer>
                     {products.map((product, index) => {
                         const finalUrl = PageRoutes.PRODUCT_DETAILS.replace(':id', `${product.id}`);
-                        return (
-                            <CardContainer to={finalUrl}>
-                                <ImageContainer backgroundImg={product.imageUrl}></ImageContainer>
-                                <ProductInfo>
-                                    <ProductName>{product.name}</ProductName>
-                                </ProductInfo>
-                            </CardContainer>
-                            );
+                        if (category?.id === product.categoryId)
+                            return (
+                                <CardContainer to={finalUrl}>
+                                    <ImageContainer backgroundImg={product.imageUrl}></ImageContainer>
+                                    <ProductInfo>
+                                        <ProductName>{product.name}</ProductName>
+                                    </ProductInfo>
+                                </CardContainer>
+                        );
 
                         return null;
                     })}
                 </DashboardContainer>
             </ContentContainer>
         </DashboardContainer>
-      
+
     );
 }
