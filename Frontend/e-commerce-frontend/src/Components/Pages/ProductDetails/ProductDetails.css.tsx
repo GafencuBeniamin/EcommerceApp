@@ -95,7 +95,9 @@ export const Image = styled.div<ImgProps>`
   top: 10px;
   border-radius: 3%;
   background-image: url(${(props) => props.backgroundImg});
-  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   transition: 0.2s;
   ${maxWidthQuery(Breakpoints.small)} {
          width: 96%;

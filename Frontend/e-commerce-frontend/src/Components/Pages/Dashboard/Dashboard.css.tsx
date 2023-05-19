@@ -49,6 +49,9 @@ export const ImageContainer = styled.div<{ backgroundImg?: string; }>`
     background-size: cover;
     border-radius: 15px 15px 0 0;
     background-image: url(${(props) => props.backgroundImg});
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
 `;
 
 export const ProductInfo = styled.div`

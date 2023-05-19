@@ -9,7 +9,7 @@ import { PageRoutes } from "../../../Utils/Routes";
 import axios from "axios"
 import { ProductType } from "../../../Utils/Types";
 import { requestUrls } from "../../../Backend/requestUrls";
-
+import testImage from "../../../Assets/Images/ProductsPhotos/Comoda1.jpg";
 
 
 export const Dashboard: FC = () => {

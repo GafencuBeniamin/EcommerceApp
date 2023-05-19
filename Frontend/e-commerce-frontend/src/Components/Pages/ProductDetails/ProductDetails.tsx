@@ -9,7 +9,6 @@ import {
 } from "./ProductDetails.css";
 import { useParams } from "react-router-dom";
 import { requestUrls } from "../../../Backend/requestUrls";
-//import useGetCustomFetch from "../../../Hooks/useGetCustomFetch";
 import { CategoryType, ProductType } from "../../../Utils/Types";
 import axios from "axios";
 

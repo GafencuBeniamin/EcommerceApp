@@ -11,7 +11,6 @@ import { CategoryType, ProductType } from "../../../Utils/Types";
 import { requestUrls } from "../../../Backend/requestUrls";
 import { useParams } from "react-router-dom";
 
-//gonna change based on given category id
 
 export const FilteredDashboard: FC = () => {
 
