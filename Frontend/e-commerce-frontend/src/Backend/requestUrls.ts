@@ -1,6 +1,4 @@
-const backendEnvironment = 'http://localhost:8080/';
-const routeBase = 'api/v1';
-const authRouteBase = 'auth';
+
 const id = ':id';
 
 export const requestUrls = {
@@ -9,6 +7,6 @@ export const requestUrls = {
     products: `http://localhost:8080/products`,
     product: `http://localhost:8080/products/${id}`,
 
-    authRegister: `${backendEnvironment}${routeBase}/${authRouteBase}/register`,
-    authLogin: `${backendEnvironment}${routeBase}/${authRouteBase}/login`,
+    authRegister: `http://localhost:8080/api/v1/auth/register`,
+    authLogin: `http://localhost:8080/api/v1/auth/authenticate`,
 };
